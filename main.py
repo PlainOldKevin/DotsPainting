@@ -5,6 +5,7 @@ import random as rand
 # Create turtle
 cursor = t.Turtle()
 t.colormode(255)
+cursor.hideturtle()
 
 # Function to select color for circle
 def random_color():
@@ -33,14 +34,20 @@ def draw():
         cursor.forward(50) 
 
 # Function to tell the cursor to reposition
-
+def reposition(start):
+    cursor.setpos(start[0], cursor.ycor() + 40)
 
 # Setting cursor to starting position
+start = (-225, -125)
 cursor.penup()
-cursor.setpos(-225, -125)
+cursor.setpos(start)
 cursor.speed("fastest")
 
-draw()
+# For loop to make functions work
+for _ in range(10):
+    draw()
+    reposition(start)
+
 
 # Create screen
 screen = t.Screen()
